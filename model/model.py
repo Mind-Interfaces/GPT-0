@@ -14,7 +14,7 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-from mingpt.utils import CfgNode as CN
+from model.utils import CfgNode as CN
 
 # -----------------------------------------------------------------------------
 
@@ -180,7 +180,7 @@ class GPT(nn.Module):
         assert model_type in {'gpt2', 'gpt2-medium', 'gpt2-large', 'gpt2-xl'}
         from transformers import GPT2LMHeadModel
 
-        # create a from-scratch initialized minGPT model
+        # create a from-scratch initialized GPT model
         config = cls.get_default_config()
         config.model_type = model_type
         config.vocab_size = 50257 # openai's model vocabulary
